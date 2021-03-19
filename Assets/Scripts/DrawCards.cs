@@ -9,22 +9,22 @@ public class DrawCards : MonoBehaviour
     public GameObject PlayerArea;
     public GameObject EnemyArea;
 
-    List<GameObject> cards = new List<GameObject>();
+    List<GameObject> deck = new List<GameObject>();
 
     void Start()
     {
-        cards.Add(Card1);
-        cards.Add(Card2);
+        deck.Add(Card1);
+        deck.Add(Card2);
     }
 
     public void OnClick()
     {
         for (var i = 0; i < 5; i++)
         {
-            GameObject playerCard = Instantiate(cards[Random.Range(0, cards.Count)], new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject playerCard = Instantiate(deck[Random.Range(0, deck.Count)], new Vector3(0, 0, 0), Quaternion.identity);
             playerCard.transform.SetParent(PlayerArea.transform, false);
 
-            GameObject enemyCard = Instantiate(cards[Random.Range(0, cards.Count)], new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject enemyCard = Instantiate(deck[Random.Range(0, deck.Count)], new Vector3(0, 0, 0), Quaternion.identity);
             enemyCard.transform.SetParent(EnemyArea.transform, false);
         }
     }
